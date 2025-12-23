@@ -8,13 +8,10 @@ fn main() {
 
     loop {
         let mut request = String::new();
-        match io::stdin().read_line(&mut request) {
-            Ok(_) => (),
-            Err(e) => {
-                println!("Error reading line {}", e);
-                continue;
-            }
-        }
+        let Ok(_) = io::stdin().read_line(&mut request) else {
+            println!("Error reading line");
+            continue;
+        };
 
         let mut request = request.split_ascii_whitespace();
         let Some(command) = request.next() else {

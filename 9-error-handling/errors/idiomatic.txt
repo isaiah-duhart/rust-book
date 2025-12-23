@@ -1,0 +1,1 @@
+This is the idiomatic way to read a string from a file in Rust!
