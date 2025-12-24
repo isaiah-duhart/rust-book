@@ -1,0 +1,8 @@
+[package]
+name = "crates-io-rust-book"
+description = "Exploration of crates.io publishing"
+license = "MIT"
+version = "0.2.0"
+edition = "2024"
+
+[dependencies]
