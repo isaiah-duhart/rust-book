@@ -5,12 +5,13 @@ use std::{
     path::Path,
     thread, time::Duration,
 };
+use hello::ThreadPool;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
     let pool = ThreadPool::new(5);
 
-    for stream in listener.incoming() {
+    for stream in listener.incoming().take(2) {
         let stream = match stream {
             Err(e) => {
                 eprintln!("Error getting stream {e}");
